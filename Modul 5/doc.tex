@@ -7,7 +7,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Modul 1 Praktikum Jaringan Komputer}
+\lhead{Modul 5 Praktikum Jaringan Komputer}
 \rfoot{\footnotesize Page \thepage}
 \lfoot{\footnotesize Mahyus Ihsan, S.Si, M.Si \newline Jurusan Informatika Universitas Syiah Kuala \newline Modul oleh : Diky Wahyudi, Furqan Al Ghifari, Rendika Rahmaturrizki}
 \renewcommand{\headrulewidth}{1pt}
@@ -28,7 +28,7 @@
     \begin{enumerate}
         \item Dapat memahami struktur dan jenis- jenis dari IPv6
         \item Dapat memahani tentang \textit{subnetting} dan implementasikan pengalamatan pada IPv6
-        \item Dapat memahami dan melakukan \textit{Unicast dan Broadcast} pada IPv6
+        \item Dapat memahami dan melakukan \textit{Unicast} pada IPv6
     \end{enumerate}
 
     \begin{flushleft}
@@ -52,7 +52,7 @@
             \item[] \textbf{Prefered Format} \newline
             Prefered format adalah cara penulisan IPv6 secara menyeluruh yaitu dengan menggunakan \textbf{32bit bilangan hexadecimal}
             \begin{center}
-                2001 : 0db8 : 0000 : 00a3 : ab00 : 0ab0 : 00ab : 1234
+                    
             \end{center}
             Semua bit pada IPv6 dituliskan dengan 8 bagian yang antar bagian dibatasi dengan tanda titik koma (;)
 
@@ -108,14 +108,97 @@
     \end{flushleft}
 
     \begin{flushleft}
-        \textbf{Materi 2 - NamaMateri}
+        \textbf{Materi 2 - Subnetting}
         \newline
 
-        Isi materi 2
+        \textbf{Prefix}
+
+        Prefix atau sering juga disebut dengan \textit{network portion} adalah banyaknya host portion yang dapat ditampung oleh sebuah subnet
+
+        \includegraphics[scale=0.6]{ipv6-structure.png}
+
+        \begin{itemize}
+            \item[] \textbf{Registry} \newline
+            Adalah IP yang diberikan oleh suatu lembaga kepada pihak yang mengatur jaringan pada suatu wilayah.
+            Contoh : APNIC (Asia Pacific Network Information Centre) ke pemerintah Indonesia
+            \item[] \textbf{ISP Prefix} \newline
+            Adalah IP yang diberikan diberikan oleh lembaga yang mengatur jaringan pada suatu wilayah kepada ISP.
+            Contoh : Pemerintah Indonesia ke ISP dari provider seperti Telkom
+            \item[] \textbf{Site Prefix} 
+            Adalah IP yang diberikan oleh ISP kepada pelanggan dari ISP tersebut.
+            Contoh : Telkom ke pelanggan yang menggunakan jaringan melalui pihak telkom.
+            \item[] \textbf{Subnet Prefix}
+            Adalah IP yang menandakan pembagian dari jaringan yang telah diterima dari ISP.
+        \end{itemize}
+
+        Contoh kita akan membuat 3 buah subnet, maka prefix yang digunakan adalah /50 
+        Karena kita akan menggunakan 2-bit untuk subnet identifier (48-bit global prefix + 2-bit subnet) dan maximal subnet yang dapat dibentuk dari prefix /50 adalah $2^2 = 4$ subnet
+
+        \begin{center}
+            2001:cdba:ac10:\textcolor{red}{0}000:0000:0000:0000:0000
+        \end{center}
+
+        untuk bits yang berwarna merah terdapat 4 subnet yaitu
+
+        \begin{itemize}
+            \item[] Subnet-0 = \textbf{\textcolor{red}{00}00} = 0
+            \item[] Subnet-1 = \textbf{\textcolor{red}{01}00} = 4
+            \item[] Subnet-2 = \textbf{\textcolor{red}{10}00} = 8
+            \item[] Subnet-3 = \textbf{\textcolor{red}{11}00} = c
+        \end{itemize}
+
+        jadi pembagian subnet pada prefix /50 adalah 
+
+        \begin{itemize}
+            \item[] Subnet-0 \newline
+            Dimulai dari 
+            \begin{center}
+                2001:cdba:ac10:0000:0000:0000:0000:0000
+            \end{center}
+
+            Sampai dengan 
+            \begin{center}
+                2001:cdba:ac10:3fff:ffff:ffff:ffff:ffff
+            \end{center}
+
+            \item[] Subnet-1 \newline
+            Dimulai dari 
+            \begin{center}
+                2001:cdba:ac10:4000:0000:0000:0000:0000
+            \end{center}
+
+            Sampai dengan 
+            \begin{center}
+                2001:cdba:ac10:7fff:ffff:ffff:ffff:ffff
+            \end{center}
+
+            \item[] Subnet-2 \newline
+            Dimulai dari 
+            \begin{center}
+                2001:cdba:ac10:8000:0000:0000:0000:0000
+            \end{center}
+
+            Sampai dengan 
+            \begin{center}
+                2001:cdba:ac10:bfff:ffff:ffff:ffff:ffff
+            \end{center}
+            
+            \item[] Subnet-3 \newline
+            Dimulai dari 
+            \begin{center}
+                2001:cdba:ac10:c000:0000:0000:0000:0000
+            \end{center}
+
+            Sampai dengan 
+            \begin{center}
+                2001:cdba:ac10:ffff:ffff:ffff:ffff:ffff
+            \end{center}
+        \end{itemize}
     \end{flushleft}
 
+    \newpage
     \begin{flushleft}
-        \textbf{Materi 3 - NamaMateri}
+        \textbf{Materi 3 - Simulasi menggunakan packet tracer}
         \newline
 
         Isi materi 3
