@@ -5,7 +5,15 @@
 \graphicspath{ {./img/} }
 \usepackage{multirow}
 \usepackage[a4paper, total={6in, 8in}]{geometry} % use this package in all paper
-\usepackage{hyperref} 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+} 
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -53,32 +61,159 @@
     % theory section
 
     \begin{flushleft}
-        \textbf{Materi 1 - Instalasi Mikrotik RouterOS dan Windows XP di VirtualBox}
+        \textbf{Materi 1 - Instalasi Mikrotik RouterOS di VirtualBox}
 
-        \begin{center}
-            \footnotesize\textbf{* Note :} Windows XP yang diinstall akan digunakan 
-            sebagai host di dalam jaringan.\\
-        \end{center}
+        pertama kali, kita akan mendownload \textbf{virtualbox} dan \textbf{mikrotik os} terlebih dahulu \\
+        
+        \begin{itemize}
 
-        Link Download file iso : 
-        \href{https://www.microsoft.com/en-us/Download/confirmation.aspx?id=18242}{Windows XP} \;
-        \href{https://mikrotik.com/download/archive}{Router Mikrotik OS} \\
-
-        Cara mendownload MikroTik OS dari website :
-        \href{https://www.youtube.com/watch?v=OMsGPKRLabM}{cara mendownload mikrotik os}\\
-
-        Langkah melakukan instalasi Mikrotik dan Windows XP di virtualbox :
-        \href{https://www.youtube.com/watch?v=LlmNKEuiWvk&list=PLvT7-AKYOYMxXuwYv1uA9e0aDsX1XgF4l&index=2}{cara menginstall windows xp dan mikrotik os}\\
+        	
+			\item \textbf{Download Virtualbox} \\
+				Silahkan kunjungi link berikut untuk mendownload \href{https://www.virtualbox.org/}{virtualbox}. Pilih sesuai dengan OS yang digunakan. Jika menggunakan Windows, maka pilih \textbf{Windows hosts} \\
+				
+				\begin{center}
+					\includegraphics[scale=0.3]{Screenshot1} \\
+					\includegraphics[scale=0.4]{Screenshot1.2} \\       	
+        		\end{center}
+				
+				Klik dua kali file \textbf{VirtualBox} yang telah diinstal, lalu klik \textbf{Next}
+				
+				\begin{center}
+					\includegraphics[scale=0.6]{Capture2.1} \\~\\
+					\includegraphics[scale=0.8]{Capture} \\       	
+        		\end{center}
+        		
+        		Klik \textbf{Next \>}
+        		
+        		\begin{center}
+        			\includegraphics[scale=0.7]{Screenshot (253)} \\
+        		\end{center}
+        		
+        		Pastikan semuanya tercentang, kemudian klik \textbf{Next \>} \\
+        		
+        		\begin{center}
+        			\includegraphics[scale=0.7]{Screenshot (254)} \\
+        		\end{center}
+        		
+        		Klik \textbf{Yes}
+        		
+        		\begin{center}
+        			\includegraphics[scale=0.7]{Screenshot (255)} \\
+        		\end{center}
+        		
+        		Kemudian klik \textbf{Install}. Tunggu hingga proses instalasi selesai, kemudian klik \textbf{Finish}
+        		
+        		\begin{center}
+        			\includegraphics[scale=0.7]{Screenshot (256)} \\~\\
+        			\includegraphics[scale=0.7]{Screenshot (257)} \\~\\
+        			\includegraphics[scale=0.7]{Screenshot (258)} \\
+        		\end{center}
+        		
+				Jika tidak ada kesalahan pada saat penginstalan, tampilan \textbf{virtualbox} seperti dibawah ini akan muncul
+        		
+        		\includegraphics[scale=0.3]{vbox} \\~\\ 
+        	
+			\item \textbf{Download Mikrotik OS} \\
+				Silahkan kunjungi link berikut untuk mendownload \href{https://mikrotik.com/download}{Mikrotik Router OS}. Klik \textbf{RouterOS v6} 
+				
+				\begin{center}
+					\includegraphics[scale=0.3]{routerOS} \\
+				\end{center}
+				
+				Scroll ke bawah sampai menemukan untuk pilihan \textbf{x86}. Klik \textbf{CD image} versi stable (yang sebelah kanan). Mikrotik OS akan otomatis terinstall
+				\begin{center}
+					\includegraphics[scale=0.3]{routerOS2} \\
+				\end{center}				 
+ 				        	
+        	
+        \end{itemize}
 
     \end{flushleft}
 
+	\newpage
     \begin{flushleft}
         \textbf{Materi 2 - Konfigurasi MikroTik pada VirtualBox}
         \newline
 
-        Cara melakukan konfigurasi dasar MikroTik (part I) : \href{https://www.youtube.com/watch?v=qNhfV5cta50&list=PLvT7-AKYOYMxXuwYv1uA9e0aDsX1XgF4l}{konfigurasi mikrotik dasar}\\
-        Cara melakukan konfigurasi dasar MikroTik (part II) : \href{https://www.youtube.com/watch?v=3yU42r7QvSU&list=PLvT7-AKYOYMxXuwYv1uA9e0aDsX1XgF4l&index=3}{konfigurasi mikrotik lanjutan}\\
-
+        sebelum melakukan konfigurasi mikrotik, persiapkan mikrotik dengan melakukan instalasi di virtualbox \\
+        
+        \begin{itemize}
+        	
+        	\item Klik \textbf{New} \\
+        		\begin{center}
+        			\includegraphics[scale=0.6]{virtualbox}
+        		\end{center}
+        		
+        	\item Berikan \textbf{Name:} sesuai dengan yang kalian inginkan, atur \textbf{Type:} dan \textbf{Version:} sesuai dengan gambar dibawah\\
+        		\begin{center}
+        			\includegraphics[scale=0.6]{(2)}
+        		\end{center}
+        	
+        	\item Berikan ukuran \textbf{Memory size:} sebesar \textbf{64 MB} \\
+        		\begin{center}
+        			\includegraphics[scale=0.6]{(3)}
+				\end{center}
+				
+			\item Sesuaikan seperti pada gambar dibawah \\
+        		\begin{center}
+        			\includegraphics[scale=0.6]{(4)} \\
+        			\includegraphics[scale=0.6]{(5)} \\  
+        			\includegraphics[scale=0.6]{(6)} \\
+        		\end{center}
+        		
+        	\newpage
+        	\item Berikan ukuran penyimpanan sebesar \textbf{2,00 GB} \\
+        		\begin{center}
+        			\includegraphics[scale=0.6]{(7)}
+        		\end{center}
+        	
+        	\item Jika tidak ada error, maka akan muncul tampilan seperti dibawah \\
+        		\begin{center}
+        			\includegraphics[scale=0.6]{terakhir}
+        		\end{center}
+        		        	 
+        \end{itemize}
+        
+        Jika sudah menginstall mikrotik OS nya, langkah selanjutnya adalah melakukan beberapa settingan untuk virtual machinenya
+        
+        \begin{itemize}
+        	
+			\item pastikan virtual machine yang dibuat sudah terpilih (berwarna biru), kemudian klik \textbf{Settings} 
+				\begin{center}
+					\includegraphics[scale=0.6]{(a)} 
+				\end{center}
+				
+			\item pilih menu \textbf{Storage}, klik tulisan \textbf{Empty}, pilih menu \textbf{Choose a disk file}
+				\begin{center}
+					\includegraphics[scale=0.6]{(b)} \\
+					\includegraphics[scale=0.6]{(c)} 
+				\end{center}
+				
+			\item pilih file \textbf{.iso} yang diinstall sebelumnya, kemudian klik \textbf{Open}
+				\begin{center}
+					\includegraphics[scale=0.6]{(d)} 
+				\end{center}
+				
+			\item jika sudah, maka muncul seperti dibawah 
+				\begin{center}
+					\includegraphics[scale=0.6]{(c.1)}
+				\end{center}
+			
+			\item kemudian kita akan berpindah ke menu \textbf{System}. klik \textbf{Hard Disk} pada pilihan \textbf{Boot Order:}, klik tanda panah ke atas sampai \textbf{Hard Disk} mencapai posisi paling atas 
+				\begin{center}
+					\includegraphics[scale=0.6]{(e)}
+				\end{center}
+			
+			\item nanti akan menghasilkan hasil seperti pada gambar dibawah 
+				\begin{center}
+					\includegraphics[scale=0.6]{(e)true}
+				\end{center}
+						
+			\item setelah itu, klik tombol \textbf{Ok}
+					        	
+        	
+        \end{itemize}
+		
     \end{flushleft}
 
     \begin{flushleft}
