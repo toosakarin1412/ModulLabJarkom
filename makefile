@@ -7,6 +7,8 @@ modul:
 	cd Modul\ 6 && pdflatex -jobname="Modul6" -output-directory=../build/ doc.tex
 	cd Modul\ 7 && pdflatex -jobname="Modul7" -output-directory=../build/ doc.tex
 	cd Modul\ 8 && pdflatex -jobname="Modul8" -output-directory=../build/ doc.tex
+	cd Modul\ 9 && pdflatex -jobname="Modul9" -output-directory=../build/ doc.tex
 
 	cd build/ && rm *.aux
 	cd build/ && rm *.log
+	cd build/ && rm *.out
