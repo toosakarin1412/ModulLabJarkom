@@ -15,3 +15,6 @@ modul:
 
 uas :
 	cd UAS && pdflatex -jobname="UAS" -output-directory=../build/ doc.tex
+	cd build/ && rm *.aux
+	cd build/ && rm *.log
+	cd build/ && rm *.out
